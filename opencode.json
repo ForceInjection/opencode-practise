@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "skills": {
+    "paths": [".opencode/skills"]
+  },
+  "mcp": {
+    "memory": {
+      "type": "local",
+      "command": ["npx", "-y", "mem0-openmemory-server"],
+      "enabled": false,
+      "environment": {
+        "MEM0_API_KEY": "your-api-key-here"
+      }
+    }
+  }
+}
