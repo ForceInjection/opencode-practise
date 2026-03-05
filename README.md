@@ -1,0 +1,2 @@
+# opencode-practise
+OpenCode Practise
