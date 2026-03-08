@@ -1,7 +1,7 @@
 # OpenCode 实战指南：从零用 AI 构建任务管理 API
 
-> 本指南配合《OpenCode 深度解析》文章使用，通过一个完整的实战案例，手把手演示 OpenCode 的核心功能。
-> 你将使用 OpenCode 的 Plan 模式、Build 模式、@general 子 Agent、自定义 Skill 等功能，完成一个任务管理 REST API 的开发。
+> 本指南配合[《OpenCode 深度解析》](opencode_deep_dive.md)文章使用，通过一个完整的实战案例，手把手演示 OpenCode 的核心功能。
+> 我们将使用 OpenCode 的 Plan 模式、Build 模式、@general 子 Agent、自定义 Skill 等功能，完成一个任务管理 REST API 的开发。
 
 ---
 
@@ -81,7 +81,7 @@ opencode
 ![fig-1.png](img/fig-1.png)
 图一：OpenCode TUI 启动界面
 
-启动后你会看到 OpenCode 的 TUI（终端界面）。界面右下角显示当前模式（默认为 **BUILD**）。
+启动后我们会看到 OpenCode 的 TUI（终端界面）。界面右下角显示当前模式（默认为 **BUILD**）。
 
 如果是首次使用，需要先配置模型提供商。在 TUI 中运行以下命令：
 
@@ -92,7 +92,7 @@ opencode
 ![fig-2.png](img/fig-2.png)
 图二：OpenCode 连接模型提供商界面
 
-选择你的 Provider 并粘贴 API Key。新用户推荐使用 [OpenCode Zen](https://opencode.ai/zen)，提供开箱即用的精选模型。
+选择我们的 Provider 并粘贴 API Key。新用户推荐使用 [OpenCode Zen](https://opencode.ai/zen)，提供开箱即用的精选模型。
 
 ### 1.2 了解项目已有的配置文件
 
@@ -150,7 +150,7 @@ opencode
 
 > **Plan 模式的核心特性**（见文章 1.2 节）：
 >
-> - `edit` 权限被 `deny`——**不会修改你的任何代码**（仅允许写入 `.opencode/plans/*.md`）
+> - `edit` 权限被 `deny`——**不会修改任何代码**（仅允许写入 `.opencode/plans/*.md`）
 > - `bash` 命令需要用户确认（`ask`）
 > - 内部会调度 **Explore 子 Agent** 并行探索代码库
 
@@ -169,7 +169,7 @@ opencode
 **预期行为**：
 
 1. Plan Agent 收到指令后，会内部调度 **Explore 子 Agent**（最多 3 个并行实例）搜索代码库。
-2. 你会看到 Agent 逐个读取 `src/main.py`、`src/routes.py`、`src/database.py`、`src/models.py`、`src/schemas.py`。
+2. 我们会看到 Agent 逐个读取 `src/main.py`、`src/routes.py`、`src/database.py`、`src/models.py`、`src/schemas.py`。
 3. 最终输出一份结构化的分析报告，可能包含：
 
 ```text
@@ -189,7 +189,7 @@ opencode
 ![fig-5.png](img/fig-5.png)
 图5：Plan 模式下的架构分析典型输出
 
-> **重点体验**：整个探索过程中，Plan Agent **不会修改任何文件**。你可以放心让它随意探索。
+> **重点体验**：整个探索过程中，Plan Agent **不会修改任何文件**。我们可以放心让它随意探索。
 
 ### 2.3 让 AI 制定扩展方案
 
@@ -251,7 +251,7 @@ Build Agent 会依次：
 3. 修改 `src/routes.py`——添加标签相关路由
 4. 每一步修改都可以在终端中实时看到 diff
 
-> **关键交互**：如果 AI 需要执行 Shell 命令（如运行测试），它会弹出权限确认，你可以选择：
+> **关键交互**：如果 AI 需要执行 Shell 命令（如运行测试），它会弹出权限确认，我们可以选择：
 >
 > - **Once**（允许这一次）
 > - **Always**（永远允许这类操作）
@@ -463,7 +463,7 @@ curl -X PATCH http://localhost:3000/api/tasks/1 \
 curl -X DELETE http://localhost:3000/api/tasks/1
 ```
 
-### 6.3 让 OpenCode 帮你写测试
+### 6.3 让 OpenCode 帮我们写测试
 
 回到 OpenCode，在 Build 模式下输入：
 
@@ -485,10 +485,10 @@ curl -X DELETE http://localhost:3000/api/tasks/1
 
 1. 安装并启动 Mem0 OpenMemory（参考 [mem0.ai](https://mem0.ai)）
 2. 获取 API Key
-3. 编辑 `opencode.json`，将 `"enabled": false` 改为 `true`，并填入你的 API Key
+3. 编辑 `opencode.json`，将 `"enabled": false` 改为 `true`，并填入我们的 API Key
 4. 重启 OpenCode
 
-启用后，你可以在会话中输入：
+启用后，我们可以在会话中输入：
 
 ```bash
 记住这个项目的数据库使用 SQLite，模型字段用 snake_case
@@ -498,7 +498,7 @@ curl -X DELETE http://localhost:3000/api/tasks/1
 
 ### 配置其他 MCP Server
 
-你可以在 `opencode.json` 的 `mcp` 字段中添加任意 MCP Server，例如：
+我们可以在 `opencode.json` 的 `mcp` 字段中添加任意 MCP Server，例如：
 
 ```json
 {
